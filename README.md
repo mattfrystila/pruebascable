@@ -1,5 +1,6 @@
-reddit-clone
+pruebascable
 ============
 
-The code for the Reddit Clone.
+Pruebas Cablevisión para selección de perfiles ABR
+
 # pruebascable 

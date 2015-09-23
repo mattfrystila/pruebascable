@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html ng-app="mati">
+<head>
+	<meta charset="utf-8">
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--    For responsive design-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--    Angular.min.js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <!--    Angular-Route.min.js for URL rerouting-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-route.min.js"></script>
+    <!--    Firebase.js-->
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <!--    AngularFire.min.js-->
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+    <!--    The bootstrap CSS-->
+    <link rel="stylesheet" href="bootstrap.css">
+    <!--    The Main App.js file-->
+    <script src="app.js"></script>
+	<title>Pruebas ABR</title>
+	<style>
+		.btn{
+			margin: 10px;
+			color: white;
+		}
+	</style>
+</head>
+<body style="width: 80%; margin: 0 auto"><br><br><br><br>
+	
+
+	<h2>Perfiles Seleccionados:</h3>
+	<h3>mobile  <small>playlist:
+			<a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_CVA_HLS_mobile.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_CVA_HLS_mobile.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_CVA_HLS_mobile.m3u8">Taipei</a>
+		</h3>
+		
+		<small>
+			<ul >
+				<li>4500 - (1080p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_4500.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_4500.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_4500.m3u8">Taipei</a>
+				</li>
+				<li>2500 - (720p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_2500.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_2500.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_2500.m3u8">Taipei</a>	
+				</li>
+				<li>2000 - (720p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_2000.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_2000.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_2000.m3u8">Taipei</a>
+				</li>
+				<li>1500 - (720p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_1500.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_1500.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_1500.m3u8">Taipei</a>
+				</li>			
+				<li>400 - (360p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w640x360B_400.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w640x360B_400.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w640x360B_400.m3u8">Taipei</a>
+				</li>
+				<li>audio
+				</li>
+			</ul>
+		</small>
+	
+	<h3>smart TV  <small>playlist: 
+			<a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_CVA_HLS_SmartTV.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_CVA_HLS_SmartTV.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_CVA_HLS_SmartTV.m3u8">Taipei</a>		
+
+		</small>
+		</h3>
+		<small>
+			<ul >
+				<li>6000 - (1080p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_6000.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_6000.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_6000.m3u8">Taipei</a>
+				</li>
+				<li>4500 - (1080p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_4500.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_4500.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_4500.m3u8">Taipei</a>
+				</li>
+				<li>3500 - (1080p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_3500.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_3500.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_3500.m3u8">Taipei</a>
+				</li>
+				<li>3000 - (720p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_3000.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_3000.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_3000.m3u8">Taipei</a>
+				</li>
+				<li>2500 - (720p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_2500.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_2500.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_2500.m3u8">Taipei</a>	
+				</li>
+				<li>1500 - (720p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_1500.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_1500.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_1500.m3u8">Taipei</a>
+				</li>
+				<li>1000 - (360p)
+					 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w640x360B_1000.m3u8">Gravity</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w640x360B_1000.m3u8">300</a>
+					/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w640x360B_1000.m3u8">Taipei</a>
+				</li>
+				<li>600
+				</li>
+			</ul>
+		</small>
+	
+	<br><br><br><br>
+
+
+
+	Pruebas de usabilidad: <br>
+			- Cuánto hay que esperar para que inicie la reproducción? <br>
+			- Se puede notar el cambio de segmento? <br>
+			- Cuánto tiempo tarda en reanudar cuando hago skipping? <br>
+			- Llega al bitrate máximo?<br>	
+			- Es aceptable la calidad a bitrate bajo? En general es uniforme? Alcanza las expectativas? <br>			
+	<br>
+	
+	Playlists de Resolución fija / bitrate adaptativo: <br>
+		<ul>
+		<li>1920x1080: 
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H.m3u8">Gravity</a>
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H.m3u8">300</a>
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H.m3u8">Taipei</a>
+		</li>
+		<li>1280x720
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H.m3u8">Gravity</a>
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H.m3u8">300</a>
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H.m3u8">Taipei</a>
+		</li>
+		<li>640x360 
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w640x360B.m3u8">Gravity</a>
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w640x360B.m3u8">300</a>
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w640x360B.m3u8">Taipei</a>
+		</li>
+		<li>400x224
+		</li>	
+	</ul>
+	<br><br><br><br>
+
+
+	Bitrate fijo -> Selección de la mejor resolución según BW: <br>
+				- Es mejor una resolución baja a bitrate alto o una resolución alta a bitrate bajo? Dónde está el límite para cada caso?
+
+	<ul>
+		<li>400 - (360p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w640x360B_400.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w640x360B_400.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w640x360B_400.m3u8">Taipei</a>
+		</li>
+		<li>1000 - (360p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w640x360B_1000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w640x360B_1000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w640x360B_1000.m3u8">Taipei</a>
+			- (720p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_1000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_1000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_1000.m3u8">Taipei</a>
+		</li>
+		<li>1500 - (360p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w640x360B_1500.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w640x360B_1500.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w640x360B_1500.m3u8">Taipei</a>
+			- (720p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_1500.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_1500.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_1500.m3u8">Taipei</a>
+		</li>
+		<li>2000 - (360p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w640x360B_2000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w640x360B_2000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w640x360B_2000.m3u8">Taipei</a>
+			- (720p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_2000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_2000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_2000.m3u8">Taipei</a>
+		</li>
+		<li>2500 - (720p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_2500.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_2500.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_2500.m3u8">Taipei</a>
+		</li>
+		<li>3000 - (720p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_3000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_3000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_3000.m3u8">Taipei</a>
+		</li>
+		<li>3500 - (1080p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_3500.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_3500.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_3500.m3u8">Taipei</a>
+		</li>
+		<li>4000 - (720p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_4000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_4000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_4000.m3u8">Taipei</a>
+		</li>
+		<li>4500 - (1080p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_4500.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_4500.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_4500.m3u8">Taipei</a>
+		</li>
+		<li>5000 - (720p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_5000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_5000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_5000.m3u8">Taipei</a>
+		</li>
+		<li>6000 - (720p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_6000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_6000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_6000.m3u8">Taipei</a>
+			- (1080p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_6000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_6000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_6000.m3u8">Taipei</a>
+		</li>
+		<li>6500 - (1080p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_6500.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_6500.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_6500.m3u8">Taipei</a>
+		</li>
+		<li>7000 - (720p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1280x720H_7000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1280x720H_7000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1280x720H_7000.m3u8">Taipei</a>
+			- (1080p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_7000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_7000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_7000.m3u8">Taipei</a>			
+		</li>
+		<li>8000 - (1080p)
+			 <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_8000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_8000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_8000.m3u8">Taipei</a>
+		</li>
+		<li>9000 - (1080p)
+			- <a href="http://200.42.4.13:8080/segments/vod_smartTV/Gravity%20-%202K%20Trailer_w1920x1080H_9000.m3u8">Gravity</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/300%20-%20Rise%20of%20an%20Empire%20-%20Trailer%202_w1920x1080H_9000.m3u8">300</a>
+			/ <a href="http://200.42.4.13:8080/segments/vod_smartTV/%5b2160p%5d%204K-HD.Club-2013-Taipei%20101%20Fireworks%20Trailer%20(4ksamples.com)_w1920x1080H_9000.m3u8">Taipei</a>
+		</li>
+	</ul>
+	<br><br><br><br>
+
+
+	<br><br><br><br>
+
+    <div ng-view></div>
+
+
+
+</body>
+</html>
