@@ -1,0 +1,13 @@
+.flowplayer a{
+	background-color: none;
+	visibility: hidden;
+}
+a.fp-brand{
+	visibility: hidden;
+}
+a.fp-fullscreen{
+	visibility: visible;
+}
+a.fp-mute{
+	visibility: visible;
+}
