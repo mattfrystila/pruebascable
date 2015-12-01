@@ -2,26 +2,55 @@
 <html>
 <head>
 	<meta charset="utf-8">
-  	<link rel="stylesheet" href="//releases.flowplayer.org/6.0.4/skin/minimalist.css">
+
+  	<!-- 1. skin https://flowplayer.org/docs/skinning.html -->
+	<link rel="stylesheet" href="//releases.flowplayer.org/6.0.4/skin/minimalist.css">
+  	
   	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
   	<script src="//releases.flowplayer.org/6.0.4/flowplayer.min.js"></script>
+  	<script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.min.js"></script>
   	<link rel="stylesheet" href="mystyles.css">
 
 </head>
 <body>
-  <div class="flowplayer">
-    <video>
-      <source type="video/webm"
-              src="//stream.flowplayer.org/drive.webm">
-      <source type="video/mp4"
-              src="//stream.flowplayer.org/drive.mp4">
-      </video>
-  </div>
+  <div id="hlsjs" class="is-closeable"></div>
+
+<div class="info">
+  <p>player engine: <span id="engine"></span></p>
+
+  <p>video type: <span id="vtype"></span></p>
+
+  <p>video source: <span id="src"></span></p>
+</div>
 </body>
 <script type="text/javascript">
-	$('.a').on('click',function(){
-		alert('Hola');
-	});
+	window.onload = function () {
+
+  flowplayer("#hlsjs", {
+    splash: true,
+    embed: false, // setup would need iframe embedding
+    ratio: 5/12,
+
+    clip: {
+      sources: [
+        { type: "application/x-mpegurl",
+          src:  "http://200.42.4.13:8080/segments/chHD5/AEHD_StreamA.m3u8" },
+        { type: "video/webm",
+          src:  "//drive.flowplayer.org/202777/84049-bauhaus.webm" },
+        { type: "video/mp4",
+          src:  "//drive.flowplayer.org/202777/84049-bauhaus.mp4" }
+      ]
+    }
+
+  }).on("ready", function (e, api, video) {
+    // info for demo purposes
+    document.getElementById("engine").innerHTML = api.engine.engineName;
+    document.getElementById("vtype").innerHTML = video.type;
+    document.getElementById("src").innerHTML = video.src;
+
+  });
+
+};
 
 </script>
 </html>
