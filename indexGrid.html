@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<!-- 1. skin https://flowplayer.org/docs/skinning.html -->
+	<link rel="stylesheet" href="//releases.flowplayer.org/6.0.4/skin/minimalist.css">
+	  	
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//releases.flowplayer.org/6.0.4/flowplayer.min.js"></script>
+	<script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.min.js"></script>
+
+	<link rel="stylesheet" href="mystyles.css">
+	<style>
+		/*
+		  sprite dimensions: 982x420
+		*/
+		#grid {
+		  width: 982px; /* same as sprite */
+		  padding: 0;
+		  margin: 0 0 440px 0; /* 420 + 20 margin bottom */
+		  /* the following 3 directives not needed if the playlist is below the player from the start */
+		  -webkit-transition: margin .8s;
+		  -moz-transition: margin .8s;
+		  transition: margin .8s;
+		}
+		#grid.is-splash {
+		  margin: 0;
+		}
+		#grid.is-splash .fp-ui {
+		  display: none;
+		}
+		 
+		/* playlist as grid */
+		#grid .fp-playlist {
+		  z-index: 12; /* overlay the UI */
+		  background: #fff url(//flowplayer.org/media/img/demos/playlist/grid.jpg) center no-repeat;
+		  /* 982 not divisible by 4, so 980 + 1px padding each side */
+		  padding: 0 1px;
+		  position: absolute;
+		  left: 0;
+		  bottom: -440px; /* -420 - 20 */
+		  /* the following 3 directives not needed if the playlist is below the player from the start */
+		  -webkit-transition: all .8s;
+		  -moz-transition: all .8s;
+		  transition: all .8s;
+		}
+		#grid.is-splash .fp-playlist {
+		  padding: 66px 1px; /* (980 / 16 * 9 - 420) / 2 = 65.625 */
+		  bottom: 0;
+		}
+		 
+		/* the playlist item elements */
+		#grid .fp-playlist a {
+		  width: 245px;  /* 980 / 4 */
+		  height: 140px; /* 420 / 3 */
+		  display: inline-block;
+		}
+		#grid .fp-playlist a.is-active, #grid .fp-playlist a:hover {
+		  background-image: url(//releases.flowplayer.org/6.0.4/skin/img/play_white.png);
+		  background-position: center;
+		  background-repeat: no-repeat;
+		}
+		@media(-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+		  #grid .fp-playlist a.is-active, #grid .fp-playlist a:hover {
+		    background-image: url(//releases.flowplayer.org/6.0.4/skin/img/play_white@x2.png);
+		  }
+		}
+		#grid .fp-playlist a:hover {
+		  background-size: 12%;
+		}
+		#grid .fp-playlist a.is-active {
+		  background-size: 20%;
+		}
+	</style>
+</head>
+<body>
+	
+
+
+	<hr> <!-- delimiter to show vertical space handling -->
+ 	<div id="grid" class="is-splash is-closeable"></div>
+	<hr> <!-- delimiter to show vertical space handling -->
+
+
+
+
+	<script type="text/javascript">
+		// ensure that DOM is ready
+		window.onload = function () {
+		 
+		  var container = document.getElementById("grid"),
+		 
+		  getVideoName = function (i) {
+		    /*
+		      we do not have 12 videos available
+		      so repeat videos named night1 thru night6
+		      fill grid with 6 videos by clamping index count between 0 and 5
+		    */
+		    return "night" + (i % 6 + 1);
+		  },
+		 
+		  getPlaylist = function () {
+		    var playlist = [], i;
+		 
+		    for (i = 0; i < 12; i += 1) {
+		      playlist.push({
+		        sources: [
+		          { type: "application/x-mpegurl",
+		            src:  "http://200.42.4.13:8080/segments/chHD5/AEHD_StreamA.m3u8" }
+		        ]
+		      });
+		    }
+		 
+		    return playlist;
+		  };
+		 
+
+		  // install the player
+		  flowplayer(container, {
+		    playlist: getPlaylist(),
+		    //rtmp: "rtmp://s3b78u0kbtx79q.cloudfront.net/cfx/st",
+		    //qualities: ["216p", "360p", "720p", "1080p"],
+		    //defaultQuality: "360p",
+		    ratio: 9/16
+		  });
+		 
+		};
+	</script>
+</body>
+</html>
