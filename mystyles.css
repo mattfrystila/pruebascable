@@ -1,4 +1,9 @@
-.flowplayer a{
+.flowplayer {
+	width: 50%;
+	float: left;
+	position: relative;
+}
+a{
 	background-color: none;
 	visibility: hidden;
 }
@@ -11,3 +16,4 @@ a.fp-fullscreen{
 a.fp-mute{
 	visibility: visible;
 }
+

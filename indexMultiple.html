@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<meta charset="utf-8">
+
+	  	<!-- 1. skin https://flowplayer.org/docs/skinning.html -->
+		<link rel="stylesheet" href="//releases.flowplayer.org/6.0.4/skin/minimalist.css">
+	  	
+	  	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	  	<script src="//releases.flowplayer.org/6.0.4/flowplayer.min.js"></script>
+	  	<script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.min.js"></script>
+
+	  	<link rel="stylesheet" href="mystyles.css">
+
+	</head>
+	<body>
+		<!-- <div id="live" class="fixed-controls"></div> Para fijar los controles en lugar de auto hide-->
+ 		<div id="live playerContainer" 
+ 			 data-live="true" 
+ 			 data-ratio="0.5625" 
+ 			 class="flowplayer ">
+
+ 			 <video autoplay
+ 			 		data-title="Live stream">
+		    	<source type="application/x-mpegurl" 
+		    			src="http://200.42.4.13:8080/segments/chHD5/AEHD_StreamA.m3u8">
+		   	</video>
+
+ 		</div>
+
+		<div id="live2 playerContainer"
+		 	 data-live="true"  
+			 class="flowplayer "> <!-- .is-splash togglea entre players solo uno activo -->
+ 			 
+ 			 <video autoplay
+ 			 		data-title="Live stream">
+		    	<source type="application/x-mpegurl" 
+		    			src="http://200.42.4.13:8080/segments/chHD5/AEHD_StreamA.m3u8">
+		   	</video> 
+ 		</div>
+ 		<div id="live playerContainer" 
+ 			 data-live="true" 
+ 			 data-ratio="0.5625" 
+ 			 class="flowplayer ">
+
+ 			 <video autoplay
+ 			 		data-title="Live stream">
+		    	<source type="application/x-mpegurl" 
+		    			src="http://200.42.4.13:8080/segments/chHD5/AEHD_StreamA.m3u8">
+		   	</video>
+
+ 		</div>
+
+		<div id="live2 playerContainer"
+		 	 data-live="true"  
+			 class="flowplayer "> <!-- .is-splash togglea entre players solo uno activo -->
+ 			 
+ 			 <video autoplay
+ 			 		data-title="Live stream">
+		    	<source type="application/x-mpegurl" 
+		    			src="http://200.42.4.13:8080/segments/chHD5/AEHD_StreamA.m3u8">
+		   	</video> 
+ 		</div>
+
+		<div class="fp-playlist">
+	      <a href="http://200.42.4.13:8080/segments/chHD5/AEHD_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/chHD2/HD02-TELEFEHD_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/chHD3/FOX1HD_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/chHD4/HBOHD_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch3/03-CANAL7_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch4/04-FOXLIFE_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch5/05-QUIEROMUSICA_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch6/TYCSPORTS_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch7/TODONOTICIAS_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch8/DISNEY_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch9/FOXSPORTS_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch10/DISCOVERY_StreamA.m3u8"></a>
+	   </div>
+	
+	</body>
+
+</html>

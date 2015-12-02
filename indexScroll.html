@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<meta charset="utf-8">
+
+ 
+
+	  	<!-- 1. skin https://flowplayer.org/docs/skinning.html -->
+		<link rel="stylesheet" href="//releases.flowplayer.org/6.0.4/skin/minimalist.css">
+		<!-- the quality selector stylesheet -->
+		<link rel="stylesheet" href="//flowplayer.org/drive/quality-selector.css">
+		<!-- load a pre 1.9 version of the jquery library -->
+		<script src="//code.jquery.com/jquery-1.8.3.min.js"></script>
+	  	
+	  	<!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script> -->
+	  	<script src="//releases.flowplayer.org/6.0.4/flowplayer.min.js"></script>
+	  	<script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.min.js"></script>
+		<!-- the quality selector plugin -->
+		<script src="//flowplayer.org/drive/quality-selector-v6.js"></script>
+		<!-- jQuery Tools -->
+		<script src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>
+
+	  	<link rel="stylesheet" href="mystyles.css">
+		<style>
+			
+			/* fixed width container */
+			#player {
+			  width: 800px;
+			  background-color: #036;
+			}
+			 
+			/* scrollable */
+			div.scrollable-wrap {
+			  display: block;
+			  width: 800px;
+			  height: 60px;
+			}
+			.scrollable-wrap .scrollable {
+			  position: relative;
+			  overflow: hidden;
+			  float: left;
+			  width: 730px;
+			  height: 60px;
+			}
+			/* playlist items == scrollable items */
+			.scrollable .items {
+			  width: 999em;
+			  position: absolute;
+			}
+			.scrollable .items div {
+			  float: left;
+			}
+			.scrollable .items span {
+			  float: left;
+			  padding: 10px;
+			  margin: 10px;
+			  width: 330px;
+			  color: #282828;
+			  background-color: rgba(0, 0, 0, 0.2);
+			  -webkit-border-radius: 10px;
+			  -moz-border-radius: 10px;
+			  border-radius: 10px;
+			  background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+			  background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+			  background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+			  font-size: 16px;
+			  font-weight: bold;
+			  text-align: center;
+			  cursor: pointer;
+			}
+			.scrollable .items span.is-active {
+			  background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+			  background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+			  background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+			  color: #f00;
+			}
+			.scrollable .items span.is-paused {
+			  color: #900;
+			}
+			/* scrollable prev and next buttons */
+			.scrollable-wrap a.prev, .scrollable-wrap a.next {
+			  background: url(//jquerytools.github.io/media/img/scrollable/arrow/hori_large.png) no-repeat;
+			  display: block;
+			  float: left;
+			  width: 30px;
+			  height: 30px;
+			  margin: 15px 0;
+			  font-size: 0;
+			  cursor: pointer;
+			}
+			.scrollable-wrap a.next {
+			  background-position: 0 -30px;
+			  clear: right;
+			  margin-left: 10px;
+			}
+			.scrollable-wrap a.prev:hover {
+			  background-position: -30px 0;
+			}
+			.scrollable-wrap a.prev:active {
+			  background-position: -60px 0;
+			}
+			.scrollable-wrap a.next:hover {
+			  background-position: -30px -30px;
+			}
+			.scrollable-wrap a.next:active {
+			  background-position: -60px -30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		
+		<div class="fp-playlist">
+	      <a href="http://200.42.4.13:8080/segments/chHD5/AEHD_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/chHD2/HD02-TELEFEHD_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/chHD3/FOX1HD_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/chHD4/HBOHD_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch3/03-CANAL7_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch4/04-FOXLIFE_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch5/05-QUIEROMUSICA_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch6/TYCSPORTS_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch7/TODONOTICIAS_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch8/DISNEY_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch9/FOXSPORTS_StreamA.m3u8"></a>
+	      <a href="http://200.42.4.13:8080/segments/ch10/DISCOVERY_StreamA.m3u8"></a>
+	   </div>
+
+		<div id="player" class="is-splash"></div>
+ 			<div class="scrollable-wrap">
+			  <a class="prev">prev</a>
+			  <div class="scrollable">
+			    <div class="items">
+			      <div>
+			        <span>Video 1</span> <span>Video 2</span>
+			      </div>
+			 
+			      <div>
+			        <span>Video 3</span> <span>Video 4</span>
+			      </div>
+			 
+			      <div>
+			        <span>Video 5</span> <span>Video 6</span>
+			      </div>
+			    </div>
+			  </div>
+			 
+			  <a class="next">next</a>
+			</div>
+
+	</body>
+
+
+	<script type="text/javascript">
+		$(function () {
+			  var playlist = [],
+			      base = "//stream.flowplayer.org/night",
+			      videos = $(".scrollable span"),
+			      scrollable,
+			      player,
+			      i;
+			 
+			  // build playlist from videos named night1 thru night6
+			  for (i = 1; i < 7; i += 1) {
+			    playlist.push({
+			      sources: [
+			        { type: "application/x-mpegurl", src: base + i + ".m3u8" },
+			        { type: "video/webm",            src: base + i + ".webm" },
+			        { type: "video/mp4",             src: base + i + ".mp4" },
+			        { type: "video/flash",           src: "mp4:night" + i }
+			      ]
+			    });
+			  }
+			 
+			  $(".scrollable").scrollable({
+			    circular: true
+			  });
+			 
+			  scrollable = $(".scrollable").data("scrollable");
+			 
+			  player = flowplayer($("#player"), {
+			    // loop the playlist in a circular scrollable
+			    loop: true,
+			    ratio: 9/16,
+			    qualities: ["216p", "360p", "720p", "1080p"],
+			    defaultQuality: "360p",
+			    rtmp: "rtmp://s3b78u0kbtx79q.cloudfront.net/cfx/st",
+			    playlist: playlist
+			 
+			  }).on("ready", function (e, api, video) {
+			    videos.each(function (i) {
+			      var active = i == video.index;
+			 
+			      $(this).toggleClass("is-active", active)
+			             .toggleClass("is-paused", active && api.paused);
+			    });
+			 
+			  }).on("pause resume", function (e, api) {
+			    videos.eq(api.video.index).toggleClass("is-paused", e.type == "pause");
+			 
+			  }).on("finish", function (e, api) {
+			    var vindex = api.video.index,
+			        currentpage = Math.floor(vindex / 2),
+			        scrollindex = scrollable.getIndex(),
+			        next;
+			 
+			    // advance scrollable every 2nd playlist item
+			    if (vindex % 2 != 0 && scrollindex == currentpage) {
+			      // prefer circular movement when current item is visible
+			      scrollable.next();
+			 
+			    } else if (scrollindex != currentpage) {
+			      // scroll to next item if not visible
+			      next = vindex < playlist.length - 1 ? vindex + 1 : 0;
+			      scrollable.seekTo(Math.floor(next / 2));
+			    }
+			  });
+			 
+			  videos.click(function () {
+			    var vindex = videos.index(this);
+			 
+			    if (player.video.index === vindex) {
+			      player.toggle();
+			    } else {
+			      player.play(vindex);
+			    }
+			  });
+			});
+
+
+
+
+
+
+
+		
+
+	</script>
+</html>
